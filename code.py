@@ -32,15 +32,16 @@ class Essay:
         self.original_link = original_link 
     
 def replace_junk_text(model_answer):
-    target_list = ["Sample Answer:", "Model Answer:", "Model Essay", "Model Essay",
-              "Sample Answer 1:", "Model Answer 1:", "Model Essay 1:", "Model Essay 1:",
-              "What is your view on this?",
-              "Give reasons and relevant examples for your answer.",
-              "You should write at least 250 words.",
-              "Give reasons for your answer and include any relevant examples from your own knowledge or experience.",
-              ]
-    for tar in target_list:
-        model_answer = model_answer.replace(tar, "")
+    if model_answer:
+        target_list = ["Sample Answer:", "Model Answer:", "Model Essay", "Model Essay",
+                  "Sample Answer 1:", "Model Answer 1:", "Model Essay 1:", "Model Essay 1:",
+                  "What is your view on this?",
+                  "Give reasons and relevant examples for your answer.",
+                  "You should write at least 250 words.",
+                  "Give reasons for your answer and include any relevant examples from your own knowledge or experience.",
+                  ]
+        for tar in target_list:
+            model_answer = model_answer.replace(tar, "")
         
     return model_answer
 
